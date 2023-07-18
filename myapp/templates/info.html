@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    button {font-size: 20px; width: 85px; height: 40px;}
+    a {text-decoration: none;}
+    </style>
+</head>
+<body>
+{%for q in info%}
+<h3>Full name:  {{q.name}}</h3>
+<h3>Role:  {{q.role}}</h3>
+<h3>First day at work:  {{q.date_of_start}}</h3>
+<h3>Salary:  {{q.salary}}$</h3>
+{%endfor%}
+<a href="/home"><button>Back</button></a>
+</body>
+</html>

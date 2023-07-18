@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .managers{
+            margin-left: 30px;
+        }
+        .workers{
+            margin-left: 90px;
+        }
+    </style>
+</head>
+<body>
+<h2>Directors:</h2>
+    {%for q in directors%}
+    <details class="directors">
+        <summary>{{q.name}} <a href="director/{{q.id}}">info</a></summary>
+        <p>
+            <h4>        His Managers:</h4>
+            {%for w in managers%}
+            {%if q.id == w.working_for_id%}
+            <details class="managers">
+                <summary>{{w.name}} <a href="manager/{{w.id}}">info</a></summary>
+                <p>
+                    <h4>        His workers:</h4>
+                    {%for e in workers%}
+                    {%if e.working_for_id == w.id%}
+                            {{e.name}} <a href="worker/{{e.id}}">info</a><br>
+                    {%endif%}
+                    {%endfor%}
+                </p>
+            </details>
+            {%endif%}
+            {%endfor%}
+        </p>
+    </details>
+    {%endfor%}
+</body>
+</html>
